@@ -71,6 +71,7 @@ plugins=(
 		docker
 		docker-compose
 		docker-machine
+		kubectl
 	)
 
 source $ZSH/oh-my-zsh.sh
