@@ -110,3 +110,6 @@ DEFAUL_USER="cdunford"
 prompt_context(){}
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+autoload -U +X bashcompinit && bashcompinit
+source /opt/az/lib/az.completion
