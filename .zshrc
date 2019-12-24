@@ -72,6 +72,7 @@ plugins=(
 		docker-compose
 		docker-machine
 		kubectl
+		terraform
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -105,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias k='kubectl'
 
 DEFAUL_USER="cdunford"
 prompt_context(){}
