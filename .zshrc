@@ -108,7 +108,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias k='kubectl'
-alias ls='ls -l'
+alias ls='ls -l --color=auto'
+alias c='clear'
 
 DEFAUL_USER="cdunford"
 prompt_context(){}
