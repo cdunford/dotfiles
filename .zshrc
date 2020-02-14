@@ -1,8 +1,17 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# start tmux
+if [[ $DISPLAY || $(cat /proc/sys/kernel/hostname) == "CA-F1VQ0Z2" ]]; then
+    if which tmux >/dev/null 2>&1; then
+        #if not inside a tmux session, and if no session is started, start a new session
+        # test -z "$TMUX" && (tmux attach || tmux new-session)
+        test -z "$TMUX" && (tmux -2 attach -t `tmux ls -F "#{session_name} #{?session_attached,attached,not-attached}" | awk '$2=="not-attached" {print $1}' | head -n 1` || tmux -2 new-session)
+    fi
+fi
+
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/cdunford/.oh-my-zsh"
+export ZSH="/home/cdunford/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -108,12 +117,18 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias k='kubectl'
-alias ls='ls -l'
+alias ls='ls -l --color=auto'
+alias c='clear'
 
 DEFAUL_USER="cdunford"
 prompt_context(){}
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export DOCKER_HOST=tcp://localhost:2375
+
+BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 autoload -U +X bashcompinit && bashcompinit
-source /opt/az/lib/az.completion
+source /etc/bash_completion.d/azure-cli
+
+[[ -e ~/.sshagent ]] && emulate sh -c 'source ~/.sshagent'
