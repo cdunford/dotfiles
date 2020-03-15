@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/cdunford/.oh-my-zsh"
+export ZSH="/home/cdunford/.oh-my-zsh"
+export ZSH_TMUX_AUTOSTART="true"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -28,7 +29,7 @@ ZSH_THEME="agnoster"
 DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=5
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -65,6 +66,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 		git
+		tmux
 		archlinux
 		node
 		npm
@@ -74,6 +76,7 @@ plugins=(
 		kubectl
 		terraform
 		helm
+		ansible
 	)
 
 source $ZSH/oh-my-zsh.sh
