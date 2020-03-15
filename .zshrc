@@ -121,12 +121,9 @@ alias c='clear'
 DEFAULT_USER="cdunford"
 prompt_context(){}
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export DOCKER_HOST=tcp://localhost:2375
 
 BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 autoload -U +X bashcompinit && bashcompinit
 source /etc/bash_completion.d/azure-cli
-
-#[[ -e ~/.sshagent ]] && emulate sh -c 'source ~/.sshagent'
