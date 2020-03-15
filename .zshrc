@@ -41,7 +41,7 @@ export UPDATE_ZSH_DAYS=5
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -67,6 +67,7 @@ export UPDATE_ZSH_DAYS=5
 plugins=(
 		git
 		tmux
+		ssh-agent
 		archlinux
 		node
 		npm
@@ -78,6 +79,8 @@ plugins=(
 		helm
 		ansible
 	)
+
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='code'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -114,10 +118,10 @@ alias k='kubectl'
 alias ls='ls -l --color=auto'
 alias c='clear'
 
-DEFAUL_USER="cdunford"
+DEFAULT_USER="cdunford"
 prompt_context(){}
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 autoload -U +X bashcompinit && bashcompinit
-source /opt/az/lib/az.completion
+source /opt/az/az.completion
