@@ -1,17 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# start tmux
-if [[ $DISPLAY || $(cat /proc/sys/kernel/hostname) == "CA-F1VQ0Z2" ]]; then
-    if which tmux >/dev/null 2>&1; then
-        #if not inside a tmux session, and if no session is started, start a new session
-        # test -z "$TMUX" && (tmux attach || tmux new-session)
-        test -z "$TMUX" && (tmux -2 attach -t `tmux ls -F "#{session_name} #{?session_attached,attached,not-attached}" | awk '$2=="not-attached" {print $1}' | head -n 1` || tmux -2 new-session)
-    fi
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cdunford/.oh-my-zsh"
+export ZSH_TMUX_AUTOSTART="true"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -37,7 +29,7 @@ ZSH_THEME="agnoster"
 DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=5
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -49,7 +41,7 @@ DISABLE_UPDATE_PROMPT="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -74,6 +66,8 @@ DISABLE_UPDATE_PROMPT="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 		git
+		tmux
+		ssh-agent
 		archlinux
 		node
 		npm
@@ -83,7 +77,10 @@ plugins=(
 		kubectl
 		terraform
 		helm
+		ansible
 	)
+
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='code'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -120,7 +118,7 @@ alias k='kubectl'
 alias ls='ls -l --color=auto'
 alias c='clear'
 
-DEFAUL_USER="cdunford"
+DEFAULT_USER="cdunford"
 prompt_context(){}
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
@@ -131,4 +129,4 @@ BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 autoload -U +X bashcompinit && bashcompinit
 source /etc/bash_completion.d/azure-cli
 
-[[ -e ~/.sshagent ]] && emulate sh -c 'source ~/.sshagent'
+#[[ -e ~/.sshagent ]] && emulate sh -c 'source ~/.sshagent'
