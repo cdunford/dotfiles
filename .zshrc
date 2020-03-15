@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cdunford/.oh-my-zsh"
 export ZSH_TMUX_AUTOSTART="true"
+export ZSH_TMUX_AUTOQUIT="false"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -120,8 +121,6 @@ alias c='clear'
 
 DEFAULT_USER="cdunford"
 prompt_context(){}
-
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 autoload -U +X bashcompinit && bashcompinit
 source /opt/az/az.completion
