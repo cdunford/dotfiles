@@ -1,9 +1,11 @@
 URxvt.font:     xft:MesloLGS NF:size=10:antialias=true
 URxvt.boldFont: xft:MesloLGS NF:size=10:antialias=true
 
+URxvt*depth: 32
+
 URxvt*termName: rxvt-256color
 URxvt*xftAntialias: true
-URxvt*background: #3f3f3f
+URxvt*background: [96]#3f3f3f
 URxvt*foreground: #dcdccc
 URxvt*cursorColor: #aaaaaa
 URxvt*colorUL: #366060
