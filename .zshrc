@@ -125,6 +125,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias k='kubectl'
 alias ls='ls -l --color=auto'
 alias c='clear'
+alias groot='cd $(git rev-parse --show-cdup)'
 
 DEFAULT_USER="cdunford"
 prompt_context(){}
