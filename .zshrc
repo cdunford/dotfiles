@@ -135,7 +135,7 @@ export DOCKER_HOST=tcp://localhost:2375
 BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 autoload -U +X bashcompinit && bashcompinit
-source /etc/bash_completion.d/azure-cli
+source /opt/azure-cli/az.completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
