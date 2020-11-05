@@ -130,8 +130,6 @@ alias groot='cd $(git rev-parse --show-cdup)'
 DEFAULT_USER="cdunford"
 prompt_context(){}
 
-export DOCKER_HOST=tcp://localhost:2375
-
 BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 autoload -U +X bashcompinit && bashcompinit
