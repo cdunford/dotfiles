@@ -130,6 +130,8 @@ alias groot='cd $(git rev-parse --show-cdup)'
 DEFAULT_USER="cdunford"
 prompt_context(){}
 
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
 BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 autoload -U +X bashcompinit && bashcompinit
