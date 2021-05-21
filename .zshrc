@@ -7,9 +7,10 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$PATH:/c/Users/cdunford/AppData/Local/Programs/Microsoft VS Code:/c/Program Files/dotnet"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/cdunford/.oh-my-zsh"
+export ZSH="/c/Users/cdunford/.oh-my-zsh"
 export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOQUIT="false"
 
@@ -74,7 +75,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 		git
-		tmux
+#		tmux
 		ssh-agent
 		archlinux
 		node
@@ -105,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='code --wait'
+export EDITOR="Code.exe --wait"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -132,10 +133,14 @@ prompt_context(){}
 
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
-BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+BROWSER="/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 autoload -U +X bashcompinit && bashcompinit
-source /opt/azure-cli/az.completion
+#source /opt/azure-cli/az.completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if [[ -n "${VisualStudioVersion}" && -n "${OLDPWD}" && "${OLDPWD}" != "$(pwd)" ]]; then
+	pushd "${OLDPWD}";
+fi
