@@ -10,7 +10,7 @@ fi
 export PATH="$PATH:/c/Users/cdunford/AppData/Local/Programs/Microsoft VS Code:/c/Program Files/dotnet"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/c/Users/cdunford/.oh-my-zsh"
+export ZSH="/c/Users/cdunford/msys/.oh-my-zsh"
 export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOQUIT="false"
 
