@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/.dotnet/tools
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cdunford/.oh-my-zsh"
@@ -86,6 +86,8 @@ plugins=(
 		terraform
 		helm
 		ansible
+		doctl
+		dotnet
 	)
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
@@ -135,7 +137,7 @@ export LIBGL_ALWAYS_INDIRECT=1
 BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 autoload -U +X bashcompinit && bashcompinit
-source /opt/azure-cli/az.completion
+source /usr/share/bash-completion/completions/az
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
