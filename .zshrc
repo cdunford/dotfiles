@@ -79,6 +79,7 @@ plugins=(
 		archlinux
 		node
 		npm
+		nvm
 		docker
 		docker-compose
 		docker-machine
@@ -86,6 +87,10 @@ plugins=(
 		terraform
 		helm
 		ansible
+		pyenv
+		python
+		history
+		aws
 	)
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
@@ -140,3 +145,5 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+source /usr/share/nvm/init-nvm.sh
