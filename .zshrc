@@ -130,7 +130,13 @@ DEFAULT_USER="cdunford"
 prompt_context(){}
 
 autoload -U +X bashcompinit && bashcompinit
-source /opt/az/az.completion
+#source /opt/az/az.completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
