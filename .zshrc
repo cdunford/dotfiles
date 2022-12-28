@@ -13,6 +13,10 @@ export ZSH="/home/cdunford/.oh-my-zsh"
 export ZSH_TMUX_AUTOSTART="true"
 export ZSH_TMUX_AUTOQUIT="false"
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -141,9 +145,5 @@ autoload -U +X bashcompinit && bashcompinit
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export QT_QPA_PLATFORMTHEME=qt5ct
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 source /usr/share/nvm/init-nvm.sh
