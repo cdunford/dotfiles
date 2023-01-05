@@ -10,8 +10,11 @@ export PATH=$PATH:$HOME/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cdunford/.oh-my-zsh"
-export ZSH_TMUX_AUTOSTART="true"
-export ZSH_TMUX_AUTOQUIT="false"
+
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+	export ZSH_TMUX_AUTOSTART="true"
+	export ZSH_TMUX_AUTOQUIT="false"
+fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -134,6 +137,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias k='kubectl'
 alias ls='ls -l --color=auto'
 alias c='clear'
+alias groot='cd $(git rev-parse --show-cdup)'
+alias gchgd='git diff --name-only -z | xargs -0 git update-index --assume-unchanged'
+alias gunchgd='git ls-files -z | xargs -0 git update-index --no-assume-unchanged'
 
 DEFAULT_USER="cdunford"
 prompt_context(){}
