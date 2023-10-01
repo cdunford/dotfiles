@@ -138,8 +138,8 @@ alias k='kubectl'
 alias ls='ls -l --color=auto'
 alias c='clear'
 alias groot='cd $(git rev-parse --show-cdup)'
-alias gchgd='git diff --name-only -z | xargs -0 git update-index --assume-unchanged'
-alias gunchgd='git ls-files -z | xargs -0 git update-index --no-assume-unchanged'
+alias gunchgd='git diff --name-only -z | xargs -0 git update-index --assume-unchanged'
+alias gchgd='git ls-files -z | xargs -0 git update-index --no-assume-unchanged'
 
 DEFAULT_USER="cdunford"
 prompt_context(){}
