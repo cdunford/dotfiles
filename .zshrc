@@ -89,7 +89,6 @@ plugins=(
 		nvm
 		docker
 		docker-compose
-		docker-machine
 		kubectl
 		terraform
 		helm
